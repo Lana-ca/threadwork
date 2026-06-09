@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lana Carter is a narrative strategist, developmental editor, and cultural researcher specializing in folklore, mythology, and hidden histories.">
+  <meta property="og:title" content="Lana Carter | Narrative Strategist &amp; Cultural Researcher">
+  <meta property="og:description" content="I help writers, institutions, and cultural organizations find the missing piece in their narrative: the thread that makes everything else fall into place.">
+  <meta property="og:type" content="website">
+  <title>Lana Carter | Narrative Strategist &amp; Cultural Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================
+       DESIGN TOKENS
+    ============================================= */
+    :root {
+      --bg:          #F5F0E8;
+      --bg-alt:      #EDE7D9;
+      --bg-card:     rgba(255, 255, 255, 0.55);
+      --text:        #2C2622;
+      --text-muted:  #6A5E56;
+      --green:       #2D5016;
+      --green-light: #3A6B1E;
+      --burgundy:    #6B2D3E;
+      --gold:        #C9913D;
+      --gold-light:  #D9A855;
+      --border:      rgba(45, 80, 22, 0.18);
+      --border-gold: rgba(201, 145, 61, 0.28);
+      --shadow:      0 2px 20px rgba(44, 38, 34, 0.08);
+      --shadow-card: 0 6px 30px rgba(44, 38, 34, 0.12);
+      --nav-bg:      rgba(245, 240, 232, 0.9);
+      --t:           0.25s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg:          #1A1714;
+      --bg-alt:      #211E1A;
+      --bg-card:     rgba(255, 255, 255, 0.04);
+      --text:        #EDE7D9;
+      --text-muted:  #9A8F86;
+      --green:       #5A8A2A;
+      --green-light: #6A9E30;
+      --burgundy:    #9A4058;
+      --gold:        #C9913D;
+      --gold-light:  #D9A855;
+      --border:      rgba(201, 145, 61, 0.16);
+      --border-gold: rgba(201, 145, 61, 0.28);
+      --shadow:      0 2px 20px rgba(0, 0, 0, 0.3);
+      --shadow-card: 0 6px 30px rgba(0, 0, 0, 0.4);
+      --nav-bg:      rgba(26, 23, 20, 0.9);
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 1rem;
+      transition: background-color var(--t), color var(--t);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    a {
+      color: var(--green);
+      text-decoration: none;
+      transition: color var(--t);
+    }
+
+    a:hover { color: var(--gold); }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; }
+
+    h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 600; line-height: 1.05; }
+    h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 500; line-height: 1.2; }
+    h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); font-weight: 500; line-height: 1.3; }
+
+    p { margin-bottom: 1.3rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* =============================================
+       LAYOUT
+    ============================================= */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.75rem;
+    }
+
+    .container--narrow {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 1.75rem;
+    }
+
+    section { padding: 6rem 0; }
+
+    .bg-alt { background-color: var(--bg-alt); }
+
+    /* Section title group */
+    .section-head { margin-bottom: 3.5rem; }
+    .section-head .eyebrow { margin-bottom: 0.6rem; }
+
+    /* =============================================
+       ORNAMENT
+    ============================================= */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin: 2.5rem 0;
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-gold);
+    }
+
+    .ornament span {
+      color: var(--gold);
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+
+    /* =============================================
+       SKIP LINK
+    ============================================= */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--green);
+      color: #F5F0E8;
+      padding: 0.5rem 1rem;
+      border-radius: 2px;
+      font-size: 0.875rem;
+      z-index: 200;
+      transition: top var(--t);
+    }
+
+    .skip-link:focus { top: 1rem; color: #F5F0E8; }
+
+    /* =============================================
+       NAVIGATION
+    ============================================= */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--t);
+    }
+
+    .nav__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.75rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .nav__logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .nav__logo:hover { color: var(--gold); }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color var(--t);
+    }
+
+    .nav__links a:hover,
+    .nav__links a.is-active { color: var(--gold); }
+
+    .nav__controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.3rem 0.85rem;
+      cursor: pointer;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      transition: all var(--t);
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+      width: 36px;
+      height: 36px;
+    }
+
+    .nav__hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text);
+      transition: all var(--t);
+      transform-origin: center;
+    }
+
+    .nav__hamburger.is-open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+
+    .nav__hamburger.is-open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .nav__hamburger.is-open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    .nav__mobile {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.75rem 1.5rem;
+      z-index: 99;
+    }
+
+    .nav__mobile.is-open { display: block; }
+
+    .nav__mobile a {
+      display: block;
+      padding: 0.85rem 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      transition: color var(--t);
+    }
+
+    .nav__mobile a:hover { color: var(--gold); }
+    .nav__mobile a:last-child { border-bottom: none; }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.8rem 1.85rem;
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all var(--t);
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn--primary {
+      background: var(--green);
+      color: #F5F0E8;
+    }
+
+    .btn--primary:hover {
+      background: var(--green-light);
+      color: #F5F0E8;
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn--outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .btn--gold {
+      background: var(--gold);
+      color: #1A1714;
+    }
+
+    .btn--gold:hover {
+      background: var(--gold-light);
+      color: #1A1714;
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 9rem 0 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 85% 15%, rgba(45, 80, 22, 0.07) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 85%, rgba(107, 45, 62, 0.06) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 50%, rgba(201, 145, 61, 0.03) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero .container { position: relative; }
+
+    .hero__eyebrow { margin-bottom: 1.75rem; }
+
+    .hero__opening {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 1.75rem;
+      line-height: 1.55;
+    }
+
+    .hero__name {
+      font-size: clamp(3.5rem, 7.5vw, 6.5rem);
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero__name .accent { color: var(--green); }
+
+    .hero__tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      font-style: italic;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .hero__sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin-bottom: 2.75rem;
+    }
+
+    .hero__ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--text-muted);
+      opacity: 0.4;
+      animation: scrollBounce 2.5s ease-in-out infinite;
+    }
+
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* Hero fade-up entrance */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero .container > * {
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .hero .container > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero .container > *:nth-child(2) { animation-delay: 0.25s; }
+    .hero .container > *:nth-child(3) { animation-delay: 0.4s; }
+    .hero .container > *:nth-child(4) { animation-delay: 0.55s; }
+    .hero .container > *:nth-child(5) { animation-delay: 0.65s; }
+    .hero .container > *:nth-child(6) { animation-delay: 0.75s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero .container > * {
+        animation: none;
+        opacity: 1;
+      }
+      .hero__scroll { animation: none; }
+      * { transition-duration: 0.01ms !important; }
+    }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about__body {
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    .about__photo-wrap {
+      position: sticky;
+      top: 90px;
+    }
+
+    .about__photo-frame {
+      position: relative;
+    }
+
+    .about__photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: -8px -8px 8px 8px;
+      border: 1px solid var(--border-gold);
+      border-radius: 2px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .about__photo-frame img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      border-radius: 2px;
+      box-shadow: var(--shadow-card);
+      filter: sepia(6%) saturate(88%) brightness(1.01);
+    }
+
+    .about__photo-caption {
+      margin-top: 1.1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.04em;
+    }
+
+    /* =============================================
+       WORK & EXPERTISE
+    ============================================= */
+    .work__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .work__card {
+      padding: 2.25rem 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      border-radius: 2px;
+      transition: box-shadow var(--t), transform var(--t);
+    }
+
+    .work__card:hover {
+      box-shadow: var(--shadow-card);
+      transform: translateY(-3px);
+    }
+
+    .work__card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.25;
+      line-height: 1;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .work__card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.1rem;
+      color: var(--text);
+    }
+
+    .work__card p {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.78;
+      margin-bottom: 1rem;
+    }
+
+    .work__card p:last-child { margin-bottom: 0; }
+
+    /* =============================================
+       PORTFOLIO
+    ============================================= */
+    .portfolio__tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .portfolio__tabs::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 0.85rem 1.6rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: all var(--t);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tab-btn.is-active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    .tab-btn:hover:not(.is-active) { color: var(--text); }
+
+    .tab-panel { display: none; }
+    .tab-panel.is-active { display: block; }
+
+    .portfolio__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .pcard {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 1.85rem;
+      transition: box-shadow var(--t), transform var(--t);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pcard:hover {
+      box-shadow: var(--shadow-card);
+      transform: translateY(-3px);
+    }
+
+    .pcard__tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .pcard h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 0.85rem;
+      color: var(--text);
+    }
+
+    .pcard p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1.4rem;
+      flex: 1;
+    }
+
+    .pcard__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      transition: color var(--t);
+      margin-top: auto;
+    }
+
+    .pcard__link:hover { color: var(--gold); }
+
+    .pcard__link--static {
+      color: var(--text-muted);
+      opacity: 0.65;
+      cursor: default;
+    }
+
+    .pcard__link svg {
+      width: 11px;
+      height: 11px;
+      flex-shrink: 0;
+    }
+
+    .pcard--placeholder {
+      border-style: dashed;
+      opacity: 0.6;
+    }
+
+    .pcard--novel {
+      border-left: 3px solid var(--burgundy);
+      background: var(--bg-card);
+    }
+
+    .pcard--novel .pcard__tag { color: var(--burgundy); }
+    .pcard--novel .pcard__link--static { color: var(--burgundy); opacity: 0.75; }
+
+    /* =============================================
+       NOW
+    ============================================= */
+    .now__body {
+      font-size: 1.05rem;
+      line-height: 1.88;
+    }
+
+    .now__body p { margin-bottom: 1.5rem; }
+
+    .now__meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* =============================================
+       CONTACT
+    ============================================= */
+    .contact__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact__intro {
+      font-size: 1.0rem;
+      color: var(--text-muted);
+      line-height: 1.82;
+    }
+
+    .contact__links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 2.25rem;
+    }
+
+    .contact__link {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      transition: color var(--t);
+    }
+
+    .contact__link:hover { color: var(--gold); }
+
+    .contact__link-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    /* Form */
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+    }
+
+    .form__group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form__group label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .form__group input,
+    .form__group select,
+    .form__group textarea {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 0.8rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--text);
+      transition: border-color var(--t);
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form__group input::placeholder,
+    .form__group textarea::placeholder {
+      color: var(--text-muted);
+      opacity: 0.55;
+    }
+
+    .form__group input:focus,
+    .form__group select:focus,
+    .form__group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .form__group textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.65;
+    }
+
+    .form__group select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9913D' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form__group select option { background: var(--bg); color: var(--text); }
+
+    .form__notice {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: -0.25rem;
+    }
+
+    .form__success {
+      display: none;
+      padding: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 2px;
+    }
+
+    .form__success-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .form__success-body {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .footer {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer__logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .footer__links {
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    .footer__links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+
+    .footer__links a:hover { color: var(--gold); }
+
+    .footer__copy {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      opacity: 0.55;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 920px) {
+      .about__grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about__photo-wrap {
+        position: static;
+        max-width: 260px;
+        margin: 0 auto;
+      }
+
+      .work__grid { grid-template-columns: 1fr; }
+
+      .contact__grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+    }
+
+    @media (max-width: 680px) {
+      section { padding: 4rem 0; }
+
+      .nav__links { display: none; }
+      .nav__hamburger { display: flex; }
+
+      .hero { padding: 7.5rem 0 4rem; }
+
+      .hero__ctas {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero__ctas .btn { width: 100%; justify-content: center; }
+
+      .footer__inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .portfolio__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ============================================
+       NAVIGATION
+  ============================================= -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">Lana Carter</a>
+      <ul class="nav__links" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#now">Now</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav__controls">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour mode">
+          <span id="themeLabel">Dark</span>
+        </button>
+        <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav__mobile" id="mobileMenu" aria-hidden="true">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#now">Now</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ============================================
+         HERO
+    ============================================= -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="container">
+        <p class="eyebrow hero__eyebrow">Narrative Strategist &nbsp;&bull;&nbsp; Developmental Editor &nbsp;&bull;&nbsp; Cultural Researcher</p>
+
+        <p class="hero__opening">
+          "Some things get written down.<br>The rest survive because someone chose to remember."
+        </p>
+
+        <h1 class="hero__name">
+          Lana<br><span class="accent">Carter</span>
+        </h1>
+
+        <p class="hero__tagline">
+          I help writers, institutions, and cultural organizations find the missing piece in their narrative: the thread that makes everything else fall into place.
+        </p>
+
+        <p class="hero__sub">
+          Specializing in folklore, mythology, and hidden histories. Based in Orlando, FL. Available everywhere.
+        </p>
+
+        <div class="hero__ctas">
+          <a href="#portfolio" class="btn btn--primary">View My Work</a>
+          <a href="https://lananycole.substack.com/" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Read on Substack</a>
+          <a href="https://www.linkedin.com/in/lana-carter812/" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Connect on LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M7 10l5 5 5-5"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT
+    ============================================= -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about__grid">
+
+          <div>
+            <div class="section-head">
+              <p class="eyebrow">About</p>
+              <h2 id="about-heading">
+                The researcher.<br>
+                The editor.<br>
+                The storyteller.
+              </h2>
+            </div>
+
+            <div class="about__body">
+              <p>I've always been drawn to what doesn't make it into the official record. The oral traditions preserved across generations in kitchens and church yards. The folk practices that outlasted the systems that tried to erase them. The cultural memory that lives not in archives but in bodies and breath and repetition. This is where my research begins.</p>
+
+              <p>My academic work sits at the intersection of literary studies, rhetoric, folklore, and digital humanities. I'm finishing an M.A. in Literary Studies at UCF, where I'm also completing certificates in Professional Writing and Digital Humanities in the Age of AI. But my real education started long before graduate school. It started in libraries.</p>
+
+              <p>I've spent years teaching people how to research: how to find the thread in a body of material, how to ask a better question, how to build something coherent from scattered sources. As the first library employee at South College's Orlando campus, I built the program from the ground up, and I've watched what happens when someone who couldn't find an answer suddenly can. That moment matters to me. It's why I do this work.</p>
+
+              <p>Outside the library, I'm a fiction writer. I'm developing a literary magical realism novel set in an alternate-history Brooklyn rooted in Black folklore and diasporic spiritual traditions. The novel is my deepest research project and my most personal one. It lives at the center of everything I'm thinking about: how we carry history in our bodies, what gets handed down, what gets buried, and what rises anyway.</p>
+
+              <p>I believe the most interesting stories are the ones that have been waiting the longest to be told. My job, whether I'm working with a manuscript or a research question or a community program, is to find that waiting story and give it room to breathe.</p>
+
+              <p>I'm building toward a career that lets me do this work from anywhere. If you're looking for someone who can hold complexity, find the thread, and bring the thing home, I'd love to talk.</p>
+            </div>
+          </div>
+
+          <div class="about__photo-wrap">
+            <div class="about__photo-frame">
+              <img
+                src="Lana%20Carter%20Headshot.jpg"
+                alt="Lana Carter, narrative strategist and cultural researcher"
+                width="320"
+                height="427"
+              >
+            </div>
+            <p class="about__photo-caption">Lana Carter</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         WORK & EXPERTISE
+    ============================================= -->
+    <section id="work" class="bg-alt" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Work &amp; Expertise</p>
+          <h2 id="work-heading">Three ways I work.</h2>
+        </div>
+
+        <div class="work__grid">
+
+          <div class="work__card">
+            <span class="work__card-num" aria-hidden="true">01</span>
+            <h3>Developmental Editing &amp; Narrative Consulting</h3>
+            <p>I work with writers at the level of story architecture: structure, character arc, thematic coherence, and what the narrative is actually trying to do beneath the surface.</p>
+            <p>My research background in folklore, literary history, and cultural theory means I can meet manuscripts in territory that demands specificity. Historical fiction, literary nonfiction, stories rooted in cultural traditions that deserve more than a surface reading. I give feedback that takes the work seriously because I take the writer seriously.</p>
+            <p>I'm particularly suited to projects where the research layer and the story layer need to cohere, and where getting the details right is inseparable from getting the story right.</p>
+          </div>
+
+          <div class="work__card">
+            <span class="work__card-num" aria-hidden="true">02</span>
+            <h3>Library Services, Research &amp; Information Literacy</h3>
+            <p>I've built a library program from scratch, which means I understand every layer: reference and research support, collection development, instructional design, digital resource management, and the particular skill of meeting a patron exactly where they are.</p>
+            <p>At South College's Orlando campus, I was the first library employee. I designed the instructional program, created patron-facing guides and training materials, and built systems meant to grow. My background in public library services means I'm equally at home with wide-ranging patron needs and the beautiful unpredictability of a public-facing environment.</p>
+            <p>I'm drawn to roles where the work involves building something: a program, a curriculum, a knowledge base that didn't fully exist before.</p>
+          </div>
+
+          <div class="work__card">
+            <span class="work__card-num" aria-hidden="true">03</span>
+            <h3>Cultural Programming &amp; Content Strategy</h3>
+            <p>There is a particular skill in translating complex ideas for the audiences who need them most and don't have time for academic register. I've been doing that translation my whole career.</p>
+            <p>I develop programming and content at the intersection of libraries, community organizations, and cultural institutions. I write institutional content that sounds like a human being wrote it. I create materials that a patron or audience member will actually read and use.</p>
+            <p>I'm especially interested in programming that takes community knowledge seriously: oral histories, folk traditions, and the stories that institutions often overlook in favor of what's already on the shelf.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PORTFOLIO
+    ============================================= -->
+    <section id="portfolio" aria-labelledby="portfolio-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Portfolio</p>
+          <h2 id="portfolio-heading">Selected work.</h2>
+        </div>
+
+        <div class="portfolio__tabs" role="tablist" aria-label="Portfolio categories">
+          <button class="tab-btn is-active" role="tab" aria-selected="true" aria-controls="panel-writing" id="tab-writing">Writing &amp; Research</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-creative" id="tab-creative">Creative Writing</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-instructional" id="tab-instructional">Instructional Design</button>
+        </div>
+
+        <!-- TAB 1: Writing & Research -->
+        <div class="tab-panel is-active" id="panel-writing" role="tabpanel" aria-labelledby="tab-writing">
+          <div class="portfolio__grid">
+
+            <div class="pcard">
+              <p class="pcard__tag">Essay &bull; &Rise / Women Rise Chicago</p>
+              <h4>Gut Feelings You Should Never Ignore in Relationships</h4>
+              <p>An exploration of somatic psychology and body-based awareness in relationships, drawing on pattern recognition and intuition as reliable guides for navigating what we already know but struggle to name.</p>
+              <a href="https://www.womenrisechicago.org/blog/gut-feelings-you-should-never-ignore-in-relationships" target="_blank" rel="noopener noreferrer" class="pcard__link">
+                Read the article
+                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 7h12M8 3l4 4-4 4"/></svg>
+              </a>
+            </div>
+
+            <div class="pcard">
+              <p class="pcard__tag">Personal Essay &bull; &Rise / Women Rise Chicago</p>
+              <h4>The Younger Me Is Watching, and She Has Notes</h4>
+              <p>A meditative personal essay on reconnecting with the inner child, reclaiming imagination and joy, and the quiet radical act of letting yourself be entirely new again in the middle of ordinary life.</p>
+              <a href="https://www.womenrisechicago.org/blog/the-younger-me-is-watching-and-she-has-notes" target="_blank" rel="noopener noreferrer" class="pcard__link">
+                Read the essay
+                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 7h12M8 3l4 4-4 4"/></svg>
+              </a>
+            </div>
+
+            <div class="pcard">
+              <p class="pcard__tag">Resource Guide &bull; South College Library Blog</p>
+              <h4>A Climate of Change</h4>
+              <p>A practical, research-grounded resource guide for individual and community-level climate action, written for South College's library blog and built for a general audience that wants to act and doesn't know where to start.</p>
+              <a href="https://library.south.edu/blogs/libraryblog/A-Climate-For-Change" target="_blank" rel="noopener noreferrer" class="pcard__link">
+                Read the guide
+                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 7h12M8 3l4 4-4 4"/></svg>
+              </a>
+            </div>
+
+            <div class="pcard">
+              <p class="pcard__tag">Personal Essay &bull; Available on Request</p>
+              <h4>When Truth Is Told</h4>
+              <p>A philosophical personal essay on speaking truth despite internal resistance, the fear of losing belonging, and the quiet freedom that comes from choosing authenticity anyway, even before you feel ready.</p>
+              <span class="pcard__link pcard__link--static">Available on request</span>
+            </div>
+
+            <div class="pcard">
+              <p class="pcard__tag">Digital Humanities &bull; Live Project</p>
+              <h4>WPA Slave Narratives: A Comparative Analysis</h4>
+              <p>An interactive data visualization project analyzing WPA Federal Writers' Project slave narratives across Georgia, Florida, Missouri, Texas, and South Carolina. Features folklore extraction, thematic comparison, and Plotly visualizations built for a browser.</p>
+              <a href="https://lana-ca.github.io/Week-14-project/" target="_blank" rel="noopener noreferrer" class="pcard__link">
+                View live project
+                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 7h12M8 3l4 4-4 4"/></svg>
+              </a>
+            </div>
+
+            <div class="pcard">
+              <p class="pcard__tag">Digital Humanities &bull; Live Project</p>
+              <h4>City Matching Narrative Tool</h4>
+              <p>An interactive application that uses narrative-based analysis and comparative statistics to match users with cities based on their responses. Built as a digital humanities project demonstrating data literacy and user-centered design.</p>
+              <a href="https://lana-ca.github.io/Week-11-project/" target="_blank" rel="noopener noreferrer" class="pcard__link">
+                Try the tool
+                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 7h12M8 3l4 4-4 4"/></svg>
+              </a>
+            </div>
+
+            <!-- Placeholder: drop in academic paper titles here -->
+            <div class="pcard pcard--placeholder">
+              <p class="pcard__tag">Academic Paper &bull; Available on Request</p>
+              <h4>[Academic Paper Title]</h4>
+              <p>[A one- to two-sentence description of the paper's argument and its significance for a general audience.]</p>
+              <span class="pcard__link pcard__link--static">Available on request</span>
+            </div>
+
+            <div class="pcard pcard--placeholder">
+              <p class="pcard__tag">Academic Paper &bull; Available on Request</p>
+              <h4>[Academic Paper Title]</h4>
+              <p>[A one- to two-sentence description of the paper's argument and its significance for a general audience.]</p>
+              <span class="pcard__link pcard__link--static">Available on request</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TAB 2: Creative Writing -->
+        <div class="tab-panel" id="panel-creative" role="tabpanel" aria-labelledby="tab-creative">
+          <div class="portfolio__grid">
+
+            <div class="pcard">
+              <p class="pcard__tag">Fiction &bull; Available on Request</p>
+              <h4>David (Excerpt)</h4>
+              <p>A piece of biblical magical realism following the young shepherd David from ordinary life into the first recognition of divine calling. Written with visceral physical detail and a deep interior life, it asks what a person looks like in the moment before they understand what they are.</p>
+              <span class="pcard__link pcard__link--static">Available on request</span>
+            </div>
+
+            <div class="pcard pcard--novel">
+              <p class="pcard__tag">Novel in Progress</p>
+              <h4>Untitled Novel</h4>
+              <p>A literary magical realism novel set in an alternate-history Brooklyn rooted in Black folklore and diasporic spiritual traditions. The novel asks what a city carries differently when certain histories are allowed to breathe. Not yet excerpted publicly.</p>
+              <span class="pcard__link pcard__link--static">In progress</span>
+            </div>
+
+            <!-- Placeholder: add finished short fiction or poetry here -->
+            <div class="pcard pcard--placeholder">
+              <p class="pcard__tag">Short Fiction / Poetry &bull; Available on Request</p>
+              <h4>[Short Fiction or Poetry Title]</h4>
+              <p>[A one- to two-sentence description of the piece, its form, and what it's after.]</p>
+              <span class="pcard__link pcard__link--static">Available on request</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TAB 3: Instructional Design -->
+        <div class="tab-panel" id="panel-instructional" role="tabpanel" aria-labelledby="tab-instructional">
+          <div class="portfolio__grid">
+
+            <div class="pcard">
+              <p class="pcard__tag">Patron Resource Guide &bull; South College</p>
+              <h4>Kickstart Your Quarter</h4>
+              <p>A quarterly patron resource guide independently conceived, written, and designed for South College's Orlando library program, introducing students to key research tools, databases, and library services at the start of each academic quarter.</p>
+              <span class="pcard__link pcard__link--static">Available on request</span>
+            </div>
+
+            <div class="pcard">
+              <p class="pcard__tag">Event Coordination &bull; South College</p>
+              <h4>South College Book Fair</h4>
+              <p>Conception, organization, promotional design, and execution of a campus book fair at South College's Orlando campus. Includes original flyer design and full event coordination from first draft to doors open.</p>
+              <span class="pcard__link pcard__link--static">Materials available on request</span>
+            </div>
+
+            <div class="pcard">
+              <p class="pcard__tag">Staff Documentation &bull; South College</p>
+              <h4>FOLIO Circulation Training Guides</h4>
+              <p>Staff onboarding and escalation documentation for South College's FOLIO library management system, written to be clear, reusable, and accessible for new employees at every level of prior library system experience.</p>
+              <span class="pcard__link pcard__link--static">Available on request</span>
+            </div>
+
+            <div class="pcard">
+              <p class="pcard__tag">Workshop &bull; South College</p>
+              <h4>Research Literacy Workshops</h4>
+              <p>Patron-facing research guides and workshop materials developed for South College's library program, covering database navigation, source evaluation, and research methodology for undergraduate and returning adult students.</p>
+              <span class="pcard__link pcard__link--static">Available on request</span>
+            </div>
+
+            <!-- Placeholder: drop in Canvas course title and description here -->
+            <div class="pcard pcard--placeholder">
+              <p class="pcard__tag">Canvas Course Build &bull; South College</p>
+              <h4>[Canvas Course Title]</h4>
+              <p>[A one- to two-sentence description of the course structure, audience, and instructional goals.]</p>
+              <span class="pcard__link pcard__link--static">Available on request</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================
+         NOW
+    ============================================= -->
+    <section id="now" class="bg-alt" aria-labelledby="now-heading">
+      <div class="container--narrow">
+        <div class="section-head">
+          <p class="eyebrow">Now</p>
+          <h2 id="now-heading">What I'm working on.</h2>
+        </div>
+
+        <div class="now__body">
+          <p>I'm finishing my M.A. in Literary Studies at UCF, where my research has been pulling me deeper into the intersections of folklore methodology, narrative theory, and the particular ways that Black diasporic traditions encode and transmit knowledge. Most days I feel like I'm building a longer and longer reading list instead of a shorter one, which seems about right.</p>
+
+          <p>The novel is alive and ongoing. It's a literary magical realism story set in an alternate-history Brooklyn, rooted in Black folklore and diasporic spiritual traditions, asking what a place carries differently when certain histories are allowed to survive. I'm reading widely in Black diasporic literature and folk traditions to feed it. The research and the writing are deeply tangled, which is exactly how I want it.</p>
+
+          <p>I'm building out my Substack, where I write about folklore, mythology, narrative craft, and the hidden histories that keep surfacing no matter how hard anyone tried to bury them. I'm building toward a location-independent career that lets this work go wherever it needs to go. If something here resonates, I'd genuinely love to hear from you.</p>
+        </div>
+
+        <div class="ornament"><span>&#10022;</span></div>
+
+        <p class="now__meta">Last updated June 2026</p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT
+    ============================================= -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact__grid">
+
+          <div>
+            <div class="section-head">
+              <p class="eyebrow">Contact</p>
+              <h2 id="contact-heading">Let's work together.</h2>
+            </div>
+
+            <div class="contact__intro">
+              <p>I'm currently open to new projects and conversations. If any of this sounds like your next collaborator, I'd love to hear from you.</p>
+              <p>I'm available for developmental editing and narrative consulting, library and cultural programming roles, research collaborations, and editorial and content strategy projects. Whatever you're building, if it involves stories, research, or bringing something into sharper focus, let's talk.</p>
+              <p>I try to respond to every inquiry within two business days.</p>
+            </div>
+
+            <div class="contact__links">
+              <a href="https://www.linkedin.com/in/lana-carter812/" target="_blank" rel="noopener noreferrer" class="contact__link">
+                <svg class="contact__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="3"/>
+                  <path d="M8 11v5M8 8v.01M12 16v-5M12 13a2 2 0 014 0v3"/>
+                </svg>
+                linkedin.com/in/lana-carter812
+              </a>
+
+              <a href="https://lananycole.substack.com/" target="_blank" rel="noopener noreferrer" class="contact__link">
+                <svg class="contact__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16v4H4zM4 12h16M4 18l8 3 8-3"/>
+                </svg>
+                lananycole.substack.com
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <!--
+              FORM SETUP (Formspree):
+              1. Sign up free at https://formspree.io
+              2. Create a new form and enter lana.ca812@gmail.com as the recipient
+              3. Copy the form ID (e.g. xpzgkdba)
+              4. Replace YOUR_FORMSPREE_ID in the action attribute below
+              5. That's it. The form will submit via AJAX and show the success message.
+            -->
+            <form
+              class="form"
+              id="contactForm"
+              action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+              method="POST"
+              novalidate
+            >
+              <div class="form__group">
+                <label for="name">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  autocomplete="name"
+                  placeholder="How you'd like to be addressed"
+                >
+              </div>
+
+              <div class="form__group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                  placeholder="Where I can reach you"
+                >
+              </div>
+
+              <div class="form__group">
+                <label for="project-type">What brings you here?</label>
+                <select id="project-type" name="project_type" required>
+                  <option value="" disabled selected>Select a category</option>
+                  <option value="developmental-editing">Developmental Editing / Manuscript Consultation</option>
+                  <option value="narrative-consulting">Narrative Consulting</option>
+                  <option value="library-programming">Library or Cultural Programming Role</option>
+                  <option value="research-collaboration">Research Collaboration</option>
+                  <option value="editorial">Editorial or Content Strategy Project</option>
+                  <option value="other">Something Else</option>
+                </select>
+              </div>
+
+              <div class="form__group">
+                <label for="message">Tell me about it</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  placeholder="What are you working on? What do you need? The more context, the better."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn--primary" id="submitBtn">Send Inquiry</button>
+              <p class="form__notice">Your message goes directly to my inbox. No mailing lists unless you ask.</p>
+            </form>
+
+            <div class="form__success" id="formSuccess" aria-live="polite">
+              <p class="form__success-title">Message received.</p>
+              <p class="form__success-body">I'll be in touch within two business days. Thank you for reaching out.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+  ============================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__logo">Lana Carter</p>
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="https://lananycole.substack.com/" target="_blank" rel="noopener noreferrer">Substack</a>
+          <a href="https://www.linkedin.com/in/lana-carter812/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <p class="footer__copy">&copy; 2026 Lana Carter</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* =============================================
+       DARK MODE
+    ============================================= */
+    const html        = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel  = document.getElementById('themeLabel');
+
+    function applyTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('lc-theme', theme);
+      themeLabel.textContent = theme === 'dark' ? 'Light' : 'Dark';
+    }
+
+    // Honour system preference on first visit
+    const stored = localStorage.getItem('lc-theme');
+    const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    applyTheme(stored || preferred);
+
+    themeToggle.addEventListener('click', () => {
+      applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    /* =============================================
+       HAMBURGER / MOBILE MENU
+    ============================================= */
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('is-open');
+      hamburger.classList.toggle('is-open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('is-open');
+        hamburger.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      });
+    });
+
+    /* =============================================
+       PORTFOLIO TABS
+    ============================================= */
+    const tabBtns   = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('aria-controls');
+
+        tabBtns.forEach(b => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        tabPanels.forEach(p => p.classList.remove('is-active'));
+
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+        document.getElementById(target).classList.add('is-active');
+      });
+
+      // Keyboard navigation (left/right arrows)
+      btn.addEventListener('keydown', e => {
+        const tabs = Array.from(tabBtns);
+        const idx  = tabs.indexOf(e.currentTarget);
+        if (e.key === 'ArrowRight') { tabs[(idx + 1) % tabs.length].focus(); tabs[(idx + 1) % tabs.length].click(); }
+        if (e.key === 'ArrowLeft')  { tabs[(idx - 1 + tabs.length) % tabs.length].focus(); tabs[(idx - 1 + tabs.length) % tabs.length].click(); }
+      });
+    });
+
+    /* =============================================
+       CONTACT FORM (Formspree AJAX)
+    ============================================= */
+    const contactForm  = document.getElementById('contactForm');
+    const formSuccess  = document.getElementById('formSuccess');
+    const submitBtn    = document.getElementById('submitBtn');
+
+    contactForm.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled    = true;
+
+      try {
+        const res = await fetch(contactForm.action, {
+          method:  'POST',
+          body:    new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          contactForm.style.display = 'none';
+          formSuccess.style.display = 'block';
+        } else {
+          submitBtn.textContent = 'Send Inquiry';
+          submitBtn.disabled    = false;
+          alert('Something went wrong. Please email me directly at lana.ca812@gmail.com.');
+        }
+      } catch {
+        submitBtn.textContent = 'Send Inquiry';
+        submitBtn.disabled    = false;
+        alert('Something went wrong. Please email me directly at lana.ca812@gmail.com.');
+      }
+    });
+
+    /* =============================================
+       NAV SCROLL SPY
+    ============================================= */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav__links a');
+
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            const active = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('is-active', active);
+          });
+        }
+      });
+    }, { rootMargin: '-30% 0px -65% 0px' });
+
+    sections.forEach(s => spy.observe(s));
+  </script>
+
+</body>
+</html>
